@@ -25,8 +25,9 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackPanel>
-        <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,138,27,0" Width="207">
-            <Grid Style="{StaticResource ButtonGrid}">
+        <Button Height="50" DockPanel.Dock="Top" Margin="5,60,5,5">helllo</Button>
+        <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,30,27,0" Width="180" Height="154">
+            <Grid Style="{StaticResource ButtonGrid}" Height="149" Margin="0,0,-3,0" Width="184" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -35,7 +36,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="38"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="0" Content="1"/>
