@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VendingMachine" MaxHeight="700" MinHeight="700" MaxWidth="440" MinWidth="440">
 
-    <DockPanel Style="{StaticResource MainDockPanel}">
+    <DockPanel Style="{StaticResource MainDockPanel}" Width="428">
         <StackPanel Style="{StaticResource ItemsListStackPanel}">
             <Grid Width="200" Height="400" Margin="5">
                 <ListView Style="{StaticResource ItemsList}">
@@ -25,8 +25,8 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackPanel>
-        <StackPanel Style="{StaticResource DisplayerStackPanel}">
-            <Grid Width="200" Height="400" Margin="5">
+        <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,138,27,0" Width="207">
+            <Grid Style="{StaticResource ButtonGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -38,6 +38,18 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="0" Content="1"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="1" Content="2"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="2" Content="3"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="0" Content="4"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="1" Content="5"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="2" Content="6"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="2" Grid.Column="0" Content="7"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="2" Grid.Column="1" Content="8"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="2" Grid.Column="2" Content="9"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="0" Content="0"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="1" Content="OK"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="2" Content="delete"/>
             </Grid>
         </StackPanel>
     </DockPanel>

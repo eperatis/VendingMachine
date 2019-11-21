@@ -15,6 +15,7 @@
             <Setter Property="Background" Value="LightGray"/>
             <Setter Property="Margin" Value="3"/>
             <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="Width" Value="40"/>
         </Style>
         <Style x:Key="MainDockPanel" TargetType="DockPanel">
             <Setter Property="Width" Value="420"/>
@@ -32,11 +33,28 @@
         </Style>
         <Style x:Key="DisplayerStackPanel" TargetType="StackPanel">
             <Setter Property="Width" Value="210"/>
-            <Setter Property="Height" Value="410"/>
+            <Setter Property="Height" Value="110"/>
             <Setter Property="Orientation" Value="Horizontal"/>
             <Setter Property="DockPanel.Dock" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style x:Key="NumbersStackPanel" TargetType="StackPanel">
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="178"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="DockPanel.Dock" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <Style x:Key="ButtonGrid" TargetType="Grid">
+            <Setter Property="Width" Value="180"/>
+           
+        </Style>
+        <Style x:Key="NumButton" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Width" Value="10"/>
         </Style>
     </Application.Resources>
 </Application>
