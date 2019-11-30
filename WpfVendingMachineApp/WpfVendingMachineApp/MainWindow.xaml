@@ -26,8 +26,8 @@
             </Grid>
         </StackPanel>
         <TextBox Height="50" DockPanel.Dock="Top" Margin="5,60,5,5">helllo</TextBox>
-        <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,30,27,0" Width="180" Height="154">
-            <Grid Style="{StaticResource ButtonGrid}" Height="149" Margin="0,0,-3,0" Width="184" HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,9,27,127" Width="177" Height="Auto">
+            <Grid Style="{StaticResource ButtonGrid}" Height="149" Margin="0,0,-3,0" Width="184" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -37,7 +37,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition Height="38"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="37"/>
                 </Grid.RowDefinitions>
                 <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="0" Content="1"/>
                 <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="1" Content="2"/>
@@ -53,8 +53,8 @@
                 <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="2" Content="delete"/>
             </Grid>
         </StackPanel>
-        <StackPanel Style="{StaticResource MoneyStackPanel}">
-            <Grid Style="{StaticResource MoneyButtonGrid}">
+        <StackPanel Style="{StaticResource ResourceKey=MoneyStackPanel}" Height="78" >
+            <Grid Style="{StaticResource ResourceKey=MoneyButtonGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -64,6 +64,12 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="0" Content="5 Ft"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="1" Content="10 Ft"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="0" Grid.Column="2" Content="20 Ft"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="0" Content="50 Ft"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="1" Content="100 Ft"/>
+                <Button Style="{StaticResource Buttons}" Grid.Row="1" Grid.Column="2" Content="200 Ft"/>
             </Grid>
         </StackPanel>
     </DockPanel>
