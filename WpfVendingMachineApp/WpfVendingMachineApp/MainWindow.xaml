@@ -25,7 +25,7 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackPanel>
-        <Button Height="50" DockPanel.Dock="Top" Margin="5,60,5,5">helllo</Button>
+        <TextBox Height="50" DockPanel.Dock="Top" Margin="5,60,5,5">helllo</TextBox>
         <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,30,27,0" Width="180" Height="154">
             <Grid Style="{StaticResource ButtonGrid}" Height="149" Margin="0,0,-3,0" Width="184" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
@@ -51,6 +51,19 @@
                 <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="0" Content="0"/>
                 <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="1" Content="OK"/>
                 <Button Style="{StaticResource Buttons}" Grid.Row="3" Grid.Column="2" Content="delete"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Style="{StaticResource MoneyStackPanel}">
+            <Grid Style="{StaticResource MoneyButtonGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
             </Grid>
         </StackPanel>
     </DockPanel>

@@ -56,5 +56,18 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Width" Value="10"/>
         </Style>
+        <Style x:Key="MoneyStackPanel" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="150, 5,5,5"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="150"/>
+
+        </Style>
+        <Style x:Key="MoneyButtonGrid" TargetType="Grid">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+
+        </Style>
     </Application.Resources>
 </Application>
