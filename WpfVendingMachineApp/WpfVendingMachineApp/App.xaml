@@ -65,7 +65,12 @@
         <Style x:Key="MoneyButtonGrid" TargetType="Grid">
             <Setter Property="Width" Value="180"/>
             <Setter Property="Height" Value="66"/>
-
+        </Style>
+        <Style x:Key="DisplayTextBox" TargetType="TextBox">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Margin" Value="5,60,20,5"/>
+            <Setter Property="FontSize" Value="32"/>
         </Style>
     </Application.Resources>
 </Application>
