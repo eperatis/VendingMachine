@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VendingMachine" MaxHeight="600" MinHeight="600" MaxWidth="440" MinWidth="440">
 
-    <DockPanel Style="{StaticResource MainDockPanel}" Width="428" Height="420">
+    <DockPanel Style="{StaticResource MainDockPanel}">
         <StackPanel Style="{StaticResource ItemsListStackPanel}">
             <Grid Width="200" Height="400" Margin="5">
                     <Grid.ColumnDefinitions>
