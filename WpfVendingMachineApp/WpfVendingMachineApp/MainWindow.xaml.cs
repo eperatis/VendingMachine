@@ -23,32 +23,7 @@ namespace WpfVendingMachineApp
         public MainWindow()
         {
             InitializeComponent();
-
-            kiir_kevespenz();
-            kiir_penzvissza();
-
         }
-
-        #region metódusok
-
-        public void kiir_kevespenz()
-        {
-            if (TextboxText.Text == "kevés pénz")
-            {
-                System.Threading.Thread.Sleep(3000);
-                TextboxText.Text = "";
-            }
-        }
-
-        public void kiir_penzvissza()
-        {
-            if (TextboxText.Text == "Pénz vissza!")
-            {
-                System.Threading.Thread.Sleep(3000);
-                TextboxText.Text = "";
-            }
-        }
-        #endregion
 
         #region változók
 
@@ -70,10 +45,21 @@ namespace WpfVendingMachineApp
         int ketszaz = 200;
 
         int bedobott_penz = 0;
-        string beirt_kod = string.Empty;
-        string visszajaro = string.Empty;
+        int beirt_kod = 0;
+        int visszajaro = 0;
 
         bool ok = false;
+        bool lefutott = false;
+
+        int colacode = 13;
+        string zerocode = "15";
+        string monticode = "17";
+        string kavecode = "21";
+
+        int cocacola = 200;
+        int colazero = 250;
+        int monti = 220;
+        int kave = 150;
 
         #endregion
 
@@ -82,25 +68,48 @@ namespace WpfVendingMachineApp
         //Delete
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TextboxText.Text = "";
-            TextboxText.Text = "Pénz vissza!";
+            TextboxText.Text = "0";
+            MessageBox.Show("Visszajáró: " + Convert.ToString(bedobott_penz),"Delete");
             bedobott_penz = 0;
             ok = false;
+            lefutott = false;
         }
          
         //ok
         private void Button_Click_17(object sender, RoutedEventArgs e)
         {
-            TextboxText.Text = "";
-            if ( bedobott_penz < 50 )
+            if (ok == true & beirt_kod == 0)
             {
-                TextboxText.Text = "kevés pénz";
+                string temp = TextboxText.Text;
+                int x = 0;
+                Int32.TryParse(temp, out x);
+                beirt_kod = x;
+            }
+            if ((ok == true) & (beirt_kod == colacode) & (beirt_kod != 0))
+            {
+                visszajaro = bedobott_penz - cocacola;
+                MessageBox.Show("Visszajáró:" + visszajaro);
+                ok = false;
+                lefutott = false;
+            }
+
+            //ha pénz kisebb mint 150 akkor visszadob
+            if (ok == false & bedobott_penz < 150 )
+            {
+                MessageBox.Show("Kevés pénz!\nDobj még be egy keveset :)", "Kevés!");
                 ok = false;
             }
-            else
+            //ha pénz nagyobb akkor mehet tovább
+            if(ok == false & bedobott_penz >= 150 & lefutott == false)
             {
+                TextboxText.Text = "";
+                MessageBox.Show("Pénz elfogadva!\nÜsd be a termék kódját!","Kód!");
                 ok = true;
+                lefutott = true;
             }
+            
+            
+            
         }
 
         //1
@@ -109,7 +118,6 @@ namespace WpfVendingMachineApp
             if(ok != false)
             {
                 TextboxText.Text = TextboxText.Text + egy.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -119,7 +127,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + ketto.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -129,7 +136,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + harom.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -139,7 +145,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + negy.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -149,7 +154,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + ot.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -159,7 +163,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + hat.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -169,7 +172,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + het.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -179,7 +181,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + nyolc.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -189,7 +190,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + kilenc.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 
@@ -199,7 +199,6 @@ namespace WpfVendingMachineApp
             if (ok != false)
             {
                 TextboxText.Text = TextboxText.Text + nulla.ToString();
-                beirt_kod = beirt_kod + TextboxText.Text;
             }
         }
 

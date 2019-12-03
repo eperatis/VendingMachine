@@ -21,7 +21,34 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <ListView Style="{StaticResource ItemsList}"/>
-                <Label Grid.Row="0" Grid.Column="1" FontSize="18">Coca Cola</Label>
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="18">Coca Cola</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Ára:</TextBlock>
+                    <TextBlock TextAlignment="Center">200ft</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Kódja:</TextBlock>
+                    <TextBlock TextAlignment="Center">13</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="18">Zero Cola</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Ára:</TextBlock>
+                    <TextBlock TextAlignment="Center">250ft</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Kódja:</TextBlock>
+                    <TextBlock TextAlignment="Center">15</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="14">Mountain Dew</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Ára:</TextBlock>
+                    <TextBlock TextAlignment="Center">220ft</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Kódja:</TextBlock>
+                    <TextBlock TextAlignment="Center">17</TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="1">
+                    <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="16">Presso kávé</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Ára:</TextBlock>
+                    <TextBlock TextAlignment="Center">150ft</TextBlock>
+                    <TextBlock TextAlignment="Center" FontWeight="Bold">Kódja:</TextBlock>
+                    <TextBlock TextAlignment="Center">21</TextBlock>
+                </StackPanel>
                 <Image Grid.Row="0" Grid.Column="0" Source="/image/coca-cola.jpg" Stretch="Fill"/>
                 <Image Grid.Row="1" Grid.Column="0" Source="/image/coca-cola-zero-sugar.jpg" Stretch="Fill"/>
                 <Image Grid.Row="2" Grid.Column="0" Source="/image/mountain-dew.jpg" Stretch="Fill"/>

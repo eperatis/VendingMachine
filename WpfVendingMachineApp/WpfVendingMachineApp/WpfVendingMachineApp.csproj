@@ -98,9 +98,11 @@
     <Resource Include="image\starbucks.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\coca-cola-zero-sugar.jpg" />
     <Resource Include="image\coca-cola.jpg" />
     <Resource Include="image\mountain-dew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\coca-cola-zero-sugar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
