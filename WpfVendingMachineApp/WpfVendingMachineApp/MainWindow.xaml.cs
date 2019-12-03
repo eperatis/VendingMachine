@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfVendingMachineApp
 {
@@ -38,6 +39,7 @@ namespace WpfVendingMachineApp
         int nyolc = 8;
         int kilenc = 9;
 
+        int otforint = 5;
         int tiz = 10;
         int husz = 20;
         int otven = 50;
@@ -52,18 +54,20 @@ namespace WpfVendingMachineApp
         bool lefutott = false;
 
         int colacode = 13;
-        string zerocode = "15";
-        string monticode = "17";
-        string kavecode = "21";
+        int zerocode = 15;
+        int monticode = 17;
+        int kavecode = 21;
 
         int cocacola = 200;
         int colazero = 250;
         int monti = 220;
         int kave = 150;
 
+        string eladott_termek;
+
         #endregion
 
-        #region szám gombok
+        #region funkció gombok
 
         //Delete
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -78,6 +82,13 @@ namespace WpfVendingMachineApp
         //ok
         private void Button_Click_17(object sender, RoutedEventArgs e)
         {
+            //ha pénz kisebb mint 150 akkor visszadob
+            if (ok == false & bedobott_penz < 150)
+            {
+                MessageBox.Show("Kevés pénz!\nDobj még be egy keveset :)", "Kevés!");
+                ok = false;
+            }
+
             if (ok == true & beirt_kod == 0)
             {
                 string temp = TextboxText.Text;
@@ -85,32 +96,125 @@ namespace WpfVendingMachineApp
                 Int32.TryParse(temp, out x);
                 beirt_kod = x;
             }
+
+            //Coca cola
             if ((ok == true) & (beirt_kod == colacode) & (beirt_kod != 0))
             {
-                visszajaro = bedobott_penz - cocacola;
-                MessageBox.Show("Visszajáró:" + visszajaro);
-                ok = false;
-                lefutott = false;
+                if(bedobott_penz < 200)
+                {
+                    MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else
+                {
+                    eladott_termek = DateTime.Now.ToString() + " Coca cola " + cocacola + "Ft";
+                    File.AppendAllText("eladasok.txt", eladott_termek + Environment.NewLine);
+                    MessageBox.Show(eladott_termek,"teszt");
+                    visszajaro = bedobott_penz - cocacola;
+                    MessageBox.Show("Visszajáró:" + visszajaro + "\nÚjra vásárláshoz, dobj be egy kis aprót :D");
+                    ok = false;
+                    lefutott = false;
+                    bedobott_penz = 0;
+                    TextboxText.Text = "";
+                    visszajaro = 0;
+                    beirt_kod = 0;
+                }
             }
 
-            //ha pénz kisebb mint 150 akkor visszadob
-            if (ok == false & bedobott_penz < 150 )
+            //Coca cola Zero
+            if ((ok == true) & (beirt_kod == zerocode) & (beirt_kod != 0))
             {
-                MessageBox.Show("Kevés pénz!\nDobj még be egy keveset :)", "Kevés!");
-                ok = false;
+                if (bedobott_penz < 250)
+                {
+                    MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else
+                {
+                    eladott_termek = DateTime.Now.ToString() + " Zero cola " + colazero + "Ft";
+                    File.AppendAllText("eladasok.txt", eladott_termek + Environment.NewLine);
+                    visszajaro = bedobott_penz - colazero;
+                    MessageBox.Show("Visszajáró:" + visszajaro + "\nÚjra vásárláshoz, dobj be egy kis aprót :D");
+                    ok = false;
+                    lefutott = false;
+                    bedobott_penz = 0;
+                    TextboxText.Text = "";
+                    visszajaro = 0;
+                    beirt_kod = 0;
+                }
             }
+
+            //Mountaind dew
+            if ((ok == true) & (beirt_kod == monticode) & (beirt_kod != 0))
+            {
+                if (bedobott_penz < 220)
+                {
+                    MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else
+                {
+                    eladott_termek = DateTime.Now.ToString() + " Mountain dew " + monti + "Ft";
+                    File.AppendAllText("eladasok.txt", eladott_termek + Environment.NewLine);
+                    visszajaro = bedobott_penz - monti;
+                    MessageBox.Show("Visszajáró:" + visszajaro + "\nÚjra vásárláshoz, dobj be egy kis aprót :D");
+                    ok = false;
+                    lefutott = false;
+                    bedobott_penz = 0;
+                    TextboxText.Text = "";
+                    visszajaro = 0;
+                    beirt_kod = 0;
+                }
+            }
+
+            //Presso kave
+            if ((ok == true) & (beirt_kod == kavecode) & (beirt_kod != 0))
+            {
+                if (bedobott_penz < 150)
+                {
+                    MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else
+                {
+                    eladott_termek = DateTime.Now.ToString() + " Starbucks presso kávé " + kave + "Ft";
+                    File.AppendAllText("eladasok.txt", eladott_termek + Environment.NewLine);
+                    visszajaro = bedobott_penz - kave;
+                    MessageBox.Show("Visszajáró:" + visszajaro + "\nÚjra vásárláshoz, dobj be egy kis aprót :D");
+                    ok = false;
+                    lefutott = false;
+                    bedobott_penz = 0;
+                    TextboxText.Text = "";
+                    visszajaro = 0;
+                    beirt_kod = 0;
+                }
+            }
+
             //ha pénz nagyobb akkor mehet tovább
-            if(ok == false & bedobott_penz >= 150 & lefutott == false)
+            if (ok == false & bedobott_penz >= 150 & lefutott == false)
             {
                 TextboxText.Text = "";
                 MessageBox.Show("Pénz elfogadva!\nÜsd be a termék kódját!","Kód!");
                 ok = true;
                 lefutott = true;
             }
-            
-            
-            
         }
+
+        #endregion
+
+        #region szám gombok
 
         //1
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -211,7 +315,7 @@ namespace WpfVendingMachineApp
         {
             if (ok == false)
             {
-                bedobott_penz = bedobott_penz + ot;
+                bedobott_penz = bedobott_penz + otforint;
                 TextboxText.Text = Convert.ToString(bedobott_penz);
             }
         }
