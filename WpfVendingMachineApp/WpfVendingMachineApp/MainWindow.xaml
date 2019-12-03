@@ -7,25 +7,27 @@
         mc:Ignorable="d"
         Title="VendingMachine" MaxHeight="600" MinHeight="600" MaxWidth="440" MinWidth="440">
 
-    <DockPanel Style="{StaticResource MainDockPanel}" Width="428">
+    <DockPanel Style="{StaticResource MainDockPanel}" Width="428" Height="420">
         <StackPanel Style="{StaticResource ItemsListStackPanel}">
             <Grid Width="200" Height="400" Margin="5">
-                <ListView Style="{StaticResource ItemsList}">
-                </ListView>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-            </Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ListView Style="{StaticResource ItemsList}"/>
+                    <Image Grid.Row="0" Grid.Column="0" Source="/image/coca-cola.jpg" Stretch="Fill"/>
+                    <Image Grid.Row="1" Grid.Column="0" Source="/image/coca-cola-zero-sugar.jpg" Stretch="Fill"/>
+                    <Image Grid.Row="2" Grid.Column="0" Source="/image/mountain-dew.jpg" Stretch="Fill"/>
+                    <Image Grid.Row="3" Grid.Column="0" Source="/image/starbucks.png" Stretch="Fill"/>
+                </Grid>
         </StackPanel>
-        <TextBox Style="{StaticResource DisplayTextBox}" Name="TextboxText">0</TextBox>
+        <TextBox Style="{StaticResource DisplayTextBox}" x:Name="TextboxText" Text="0"/>
         <StackPanel Style="{StaticResource NumbersStackPanel}" Margin="5,9,27,127" Width="177" Height="Auto">
             <Grid Style="{StaticResource ButtonGrid}" Height="149" Margin="0,0,-3,0" Width="184" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
