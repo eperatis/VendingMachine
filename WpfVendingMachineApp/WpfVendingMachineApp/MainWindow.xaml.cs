@@ -108,11 +108,18 @@ namespace WpfVendingMachineApp
                     lefutott = false;
                     TextboxText.Text = "";
                 }
+                else if (coladb.Text == "0")
+                {
+                    MessageBox.Show("Sajnálom, de a termék elfogyott!\nInkább visszaadom a pénzed :)\nVisszajáró:" + bedobott_penz, "Out of stock!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
                 else
                 {
                     eladott_termek = DateTime.Now.ToString() + " Coca cola " + cocacola + "Ft";
                     File.AppendAllText("eladasok.txt", eladott_termek + Environment.NewLine);
-                    MessageBox.Show(eladott_termek,"teszt");
                     visszajaro = bedobott_penz - cocacola;
                     MessageBox.Show("Visszajáró:" + visszajaro + "\nÚjra vásárláshoz, dobj be egy kis aprót :D");
                     ok = false;
@@ -121,6 +128,11 @@ namespace WpfVendingMachineApp
                     TextboxText.Text = "";
                     visszajaro = 0;
                     beirt_kod = 0;
+                    string temp = coladb.Text;
+                    int x = 0;
+                    Int32.TryParse(temp, out x);
+                    x = x - 1;
+                    coladb.Text = Convert.ToString(x);
                 }
             }
 
@@ -130,6 +142,14 @@ namespace WpfVendingMachineApp
                 if (bedobott_penz < 250)
                 {
                     MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else if (zerodb.Text == "0")
+                {
+                    MessageBox.Show("Sajnálom, de a termék elfogyott!\nInkább visszaadom a pénzed :)\nVisszajáró:" + bedobott_penz, "Out of stock!");
                     bedobott_penz = 0;
                     ok = false;
                     lefutott = false;
@@ -147,6 +167,11 @@ namespace WpfVendingMachineApp
                     TextboxText.Text = "";
                     visszajaro = 0;
                     beirt_kod = 0;
+                    string temp = zerodb.Text;
+                    int x = 0;
+                    Int32.TryParse(temp, out x);
+                    x = x - 1;
+                    zerodb.Text = Convert.ToString(x);
                 }
             }
 
@@ -156,6 +181,14 @@ namespace WpfVendingMachineApp
                 if (bedobott_penz < 220)
                 {
                     MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else if (montidb.Text == "0")
+                {
+                    MessageBox.Show("Sajnálom, de a termék elfogyott!\nInkább visszaadom a pénzed :)\nVisszajáró:" + bedobott_penz, "Out of stock!");
                     bedobott_penz = 0;
                     ok = false;
                     lefutott = false;
@@ -173,6 +206,11 @@ namespace WpfVendingMachineApp
                     TextboxText.Text = "";
                     visszajaro = 0;
                     beirt_kod = 0;
+                    string temp = montidb.Text;
+                    int x = 0;
+                    Int32.TryParse(temp, out x);
+                    x = x - 1;
+                    montidb.Text = Convert.ToString(x);
                 }
             }
 
@@ -182,6 +220,14 @@ namespace WpfVendingMachineApp
                 if (bedobott_penz < 150)
                 {
                     MessageBox.Show("Kevés pénz!\nEz kevés lesz, inkább visszaadom :)\nVisszajáró:" + bedobott_penz, "Kevés!");
+                    bedobott_penz = 0;
+                    ok = false;
+                    lefutott = false;
+                    TextboxText.Text = "";
+                }
+                else if (pressodb.Text == "0")
+                {
+                    MessageBox.Show("Sajnálom, de a termék elfogyott!\nInkább visszaadom a pénzed :)\nVisszajáró:" + bedobott_penz, "Out of stock!");
                     bedobott_penz = 0;
                     ok = false;
                     lefutott = false;
@@ -199,6 +245,11 @@ namespace WpfVendingMachineApp
                     TextboxText.Text = "";
                     visszajaro = 0;
                     beirt_kod = 0;
+                    string temp = pressodb.Text;
+                    int x = 0;
+                    Int32.TryParse(temp, out x);
+                    x = x - 1;
+                    pressodb.Text = Convert.ToString(x);
                 }
             }
 
@@ -206,7 +257,7 @@ namespace WpfVendingMachineApp
             if (ok == false & bedobott_penz >= 150 & lefutott == false)
             {
                 TextboxText.Text = "";
-                MessageBox.Show("Pénz elfogadva!\nÜsd be a termék kódját!","Kód!");
+                MessageBox.Show("Pénz elfogadva!\nÜsd be a termék kódját!","Vásárlás!");
                 ok = true;
                 lefutott = true;
             }
