@@ -8,3 +8,4 @@ The application is an emulation of a vending machine.
 - How to add and use pictures
 - How to controll your application with buttons
 - How to make good if statements
+- How to save data into text file
