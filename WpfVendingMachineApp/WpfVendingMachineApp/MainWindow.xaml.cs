@@ -97,6 +97,15 @@ namespace WpfVendingMachineApp
                 beirt_kod = x;
             }
 
+            if ((ok == true) & (beirt_kod != 0) & (beirt_kod != colacode) & (beirt_kod != zerocode) & (beirt_kod != monticode) & (beirt_kod != kavecode))
+            {
+                MessageBox.Show("Nincs ilyen termék kód!\nInkább visszaadom a pénzed!\nVisszajáró: " + bedobott_penz);
+                ok = false;
+                beirt_kod = 0;
+                lefutott = false;
+                TextboxText.Text = "";
+                bedobott_penz = 0;
+            }
             //Coca cola
             if ((ok == true) & (beirt_kod == colacode) & (beirt_kod != 0))
             {
@@ -115,6 +124,7 @@ namespace WpfVendingMachineApp
                     ok = false;
                     lefutott = false;
                     TextboxText.Text = "";
+                    beirt_kod = 0;
                 }
                 else
                 {
@@ -154,6 +164,7 @@ namespace WpfVendingMachineApp
                     ok = false;
                     lefutott = false;
                     TextboxText.Text = "";
+                    beirt_kod = 0;
                 }
                 else
                 {
@@ -193,6 +204,7 @@ namespace WpfVendingMachineApp
                     ok = false;
                     lefutott = false;
                     TextboxText.Text = "";
+                    beirt_kod = 0;
                 }
                 else
                 {
@@ -232,6 +244,7 @@ namespace WpfVendingMachineApp
                     ok = false;
                     lefutott = false;
                     TextboxText.Text = "";
+                    beirt_kod = 0;
                 }
                 else
                 {
